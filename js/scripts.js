@@ -138,3 +138,22 @@ function topFunction() {
 	document.body.scrollTop = 0; // for Safari
 	document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
 }
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxMYH5_jfyGht-fojGH7whYXaHmCSSLGxNea2KDmphMfLnhFjAv/exec'
+const form = document.forms['submit-form']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  console.log("Estamos aqui luz estella");
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => console.log('Success!', response))
+    .catch(error => console.error('Error!', error.message))
+})
+
+
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
